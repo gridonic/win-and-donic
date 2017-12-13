@@ -1,9 +1,7 @@
-
 ###> symfony/framework-bundle ###
 .env
 /public/bundles/
 /var/
-/vendor/
 ###< symfony/framework-bundle ###
 
 # Cache and logs (Symfony2)
@@ -110,6 +108,3 @@ typings/
 
 # Yarn Integrity file
 .yarn-integrity
-
-# dotenv environment variables file
-.env
