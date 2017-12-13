@@ -1,0 +1,13 @@
+<phpunit>
+    <testsuites>
+        <testsuite name="Project Unit Tests">
+            <directory>tests/unit</directory>
+        </testsuite>
+        <testsuite name="Project Functional Tests">
+            <directory>tests/functional</directory>
+        </testsuite>
+        <testsuite name="Project Integration Tests">
+            <directory>tests/integration</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
