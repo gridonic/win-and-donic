@@ -57,5 +57,6 @@
             "id": "01C0SRBGTNDWKCAYPVHRHQ9F7F",
             "allow-contrib": false
         }
-    }
+    },
+    "minimum-stability": "beta"
 }

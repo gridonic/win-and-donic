@@ -14,5 +14,6 @@ class ScoreSubmissionServiceTest extends \PHPUnit_Framework_TestCase
 {
     public function testSubmitScore()
     {
+        $this->assertTrue(true);
     }
 }
