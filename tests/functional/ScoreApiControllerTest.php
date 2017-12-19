@@ -6,13 +6,10 @@
  * Copyright (c) Gridonic AG <hello@gridonic.ch>
  */
 
-namespace functional;
-
-use App\Controller\ScoreApiController;
+namespace App\Tests\Functional;
 
 class ScoreApiControllerTest extends \PHPUnit_Framework_TestCase
 {
-
     public function testSubmitScore()
     {
         $this->assertTrue(true);

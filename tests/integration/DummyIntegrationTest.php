@@ -6,7 +6,7 @@
  * Copyright (c) Gridonic AG <hello@gridonic.ch>
  */
 
-namespace integration;
+namespace App\Tests\Integration;
 
 
 class DummyIntegrationTest extends \PHPUnit_Framework_TestCase
