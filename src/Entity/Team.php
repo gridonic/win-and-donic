@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity()
  */
-class Team extends MatchParticipant
+class Team extends GameParticipant
 {
     /**
      * @var ArrayCollection

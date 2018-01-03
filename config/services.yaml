@@ -26,3 +26,18 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\Repository\UserRepository:
+        factory: doctrine.orm.entity_manager:getRepository
+        arguments:
+            - App\Entity\User
+
+    App\Repository\PlayerRepository:
+        factory: doctrine.orm.entity_manager:getRepository
+        arguments:
+            - App\Entity\Player
+
+    App\Repository\GameRepository:
+        factory: doctrine.orm.entity_manager:getRepository
+        arguments:
+            - App\Entity\Game

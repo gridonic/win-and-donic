@@ -12,7 +12,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Base class for participants of a match. For each type of participant (e.g., Single Player, Team), a new Entity inheriting
+ * Base class for participants of a game. For each type of participant (e.g., Single Player, Team), a new Entity inheriting
  * from this class must be created. Note that it must be included in the DiscriminatorMap in the annotation below.
  *
  * @ORM\Entity
@@ -20,7 +20,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\DiscriminatorColumn(name="type", type="string")
  * @ORM\DiscriminatorMap({"player" = "Player", "team" = "Team"})
  */
-abstract class MatchParticipant
+abstract class GameParticipant
 {
     /**
      * @var int

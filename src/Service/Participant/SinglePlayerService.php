@@ -11,11 +11,12 @@ namespace App\Service\Participant;
 
 use App\Entity\Player;
 use App\Entity\User;
+use App\Repository\PlayerRepository;
 use App\Service\Core\EntityService;
 use Doctrine\ORM\EntityRepository;
 
 /**
- * A match always consists of participants. This handles the participants of the kind "Single Player".
+ * A game always consists of participants. This handles the participants of the kind "Single Player".
  *
  * @package App\Service\Participant
  */
@@ -29,9 +30,9 @@ class SinglePlayerService
 
     /**
      * @param EntityService $entityService
-     * @param EntityRepository $playerRepository
-     */
-    public function __construct(EntityService $entityService, EntityRepository $playerRepository)
+     * @param PlayerRepository $playerRepository
+     s*/
+    public function __construct(EntityService $entityService, PlayerRepository $playerRepository)
     {
         $this->entityService = $entityService;
         $this->playerRepository = $playerRepository;
@@ -50,9 +51,19 @@ class SinglePlayerService
             $player = new Player();
             $player->setUser($user);
 
-            $player = $this->entityService->persistEntity($player);
+            $player = $this->persistPlayer($player);
         }
 
         return $player;
+    }
+
+    /**
+     * @param $player
+     *
+     * @return Player
+     */
+    private function persistPlayer($player)
+    {
+        return $this->entityService->persistEntity($player);
     }
 }

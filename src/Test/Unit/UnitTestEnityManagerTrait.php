@@ -157,7 +157,7 @@ trait UnitTestEnityManagerTrait
      */
     private function createRepository(string $entityName)
     {
-        $repositoryMock = $this->getMockBuilder(EntityRepository::class)
+        $repositoryMock = $this->getMockBuilder(str_replace('\Entity', '\Repository', $entityName) . 'Repository') // TODO: hack
             ->disableOriginalConstructor()
             ->getMock();
 

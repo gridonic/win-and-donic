@@ -12,11 +12,11 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Represents a single player that can participate in matches.
+ * Represents a single player that can participate in games.
  *
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="App\Repository\PlayerRepository")
  */
-class Player extends MatchParticipant
+class Player extends GameParticipant
 {
     /**
      * @var User
