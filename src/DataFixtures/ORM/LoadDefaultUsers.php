@@ -13,7 +13,7 @@ use App\Entity\User;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class LoadUsers extends AbstractFixture
+class LoadDefaultUsers extends AbstractFixture
 {
     /**
      * {@inheritdoc}

@@ -8,7 +8,7 @@
 
 namespace App\Tests\Functional;
 
-use App\DataFixtures\ORM\LoadUsers;
+use App\DataFixtures\ORM\LoadDefaultUsers;
 use Liip\FunctionalTestBundle\Test\WebTestCase;
 
 class ScoreApiControllerTest extends WebTestCase
@@ -19,7 +19,7 @@ class ScoreApiControllerTest extends WebTestCase
         $container = $client->getContainer();
 
         $fixures = $this->loadFixtures(array(
-            LoadUsers::class,
+            LoadDefaultUsers::class,
         ))->getReferenceRepository();
 
         $body = json_encode(array(

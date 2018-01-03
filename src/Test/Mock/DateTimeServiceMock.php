@@ -14,20 +14,30 @@ use DateTime;
 
 class DateTimeServiceMock extends DateTimeService
 {
+    const DEFAULT_NOW = '2018-03-01 12:15:55';
+
     /** @var DateTime */
     private $fakeNow;
 
     public function __construct()
     {
-        $this->fakeNow = new DateTime('2018-03-01 12:15:55'); // TODO: parameter
+        $this->fakeNow = new DateTime(self::DEFAULT_NOW); // TODO: parameter
     }
 
     /**
      * @param mixed $fakeNow
+     *
+     * @return DateTime
      */
-    public function setFakeNow($fakeNow)
+    public function updateFakeNow($fakeNow)
     {
-        $this->fakeNow = $fakeNow;
+        if ($fakeNow instanceof DateTime) {
+            $this->fakeNow = $fakeNow;
+        } else {
+            $this->fakeNow = new DateTime($fakeNow);
+        }
+
+        return $fakeNow;
     }
 
     public function now()

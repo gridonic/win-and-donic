@@ -1,3 +1,4 @@
+/* eslint-disable */
 // https://eslint.org/docs/user-guide/configuring
 
 module.exports = {
@@ -18,7 +19,7 @@ module.exports = {
   settings: {
     'import/resolver': {
       webpack: {
-        config: 'build/webpack.base.conf.js'
+        config: 'webpack/build/webpack.base.conf.js'
       }
     }
   },

@@ -10,7 +10,6 @@ namespace App\Tests\Unit\Score;
 
 use App\Entity\Game;
 use App\Entity\Player;
-use App\Entity\Team;
 use App\Repository\GameRepository;
 use App\Repository\PlayerRepository;
 use App\Service\Participant\SinglePlayerService;
@@ -18,11 +17,14 @@ use App\Service\Score\ScoreSubmissionService;
 use App\Test\Mock\DateTimeServiceMock;
 use App\Test\UnitTestBase;
 use App\Tests\Unit\Traits\TestUsersTrait;
-use Doctrine\ORM\EntityRepository;
+use DateTime;
 
 class SinglePlayerScoreSubmissionServiceTest extends UnitTestBase
 {
     use TestUsersTrait;
+
+    /** @var DateTimeServiceMock */
+    private $dateTimeService;
 
     /** @var GameRepository */
     private $gameRepository;
@@ -41,6 +43,8 @@ class SinglePlayerScoreSubmissionServiceTest extends UnitTestBase
 
     protected function setUp()
     {
+        $this->dateTimeService = new DateTimeServiceMock();
+
         /** @var PlayerRepository $playerRepository */
         $playerRepository = $this->useRepository(Player::class);
         $this->gameRepository = $this->useRepository(Game::class);
@@ -50,7 +54,7 @@ class SinglePlayerScoreSubmissionServiceTest extends UnitTestBase
         );
 
         $this->scoreSubmissionService = new ScoreSubmissionService(
-            $this->getEntityService(), $this->gameRepository, new DateTimeServiceMock()
+            $this->getEntityService(), $this->gameRepository, $this->dateTimeService
         );
 
         $this->bidu = $this->singlePlayerService->getOrCreatePlayer($this->getDefaultUsers()['bidu']);
@@ -121,6 +125,24 @@ class SinglePlayerScoreSubmissionServiceTest extends UnitTestBase
      * @dataProvider singlesResultsDataProvider
      *
      * @param array $setScores
+     * @param string $dateTimeString
+     */
+    public function testSinglesMatch_ScoreSubmitted_CurrentDateSet(array $setScores, string $dateTimeString)
+    {
+        $this->dateTimeService->updateFakeNow($dateTimeString);
+
+        $match = $this->scoreSubmissionService->submitScore(
+            $this->bidu,
+            $this->julez,
+            $setScores);
+
+        $this->assertEquals(new DateTime($dateTimeString), $match->getDateTime());
+    }
+
+    /**
+     * @dataProvider singlesResultsDataProvider
+     *
+     * @param array $setScores
      */
     public function testSinglesMatch_ScoreSubmitted_MatchSavedInRepository(array $setScores)
     {
@@ -142,13 +164,16 @@ class SinglePlayerScoreSubmissionServiceTest extends UnitTestBase
     {
         return array(
             array(
-                $this->result(11, 5, 7, 11, 15, 13),
+                $this->setScoresAssArray(11, 5, 7, 11, 15, 13),
+                '2018-03-01 12:15:55'
             ),
             array(
-                $this->result(11, 8),
+                $this->setScoresAssArray(11, 8),
+                '2018-04-03 16:10:23'
             ),
             array(
-                $this->result(11, 1, 0, 7, 8, 11, 13, 11, 9, 11),
+                $this->setScoresAssArray(11, 1, 0, 7, 8, 11, 13, 11, 9, 11),
+                '2018-04-03 18:01:05'
             ),
             // TODO: test incorrect result (e.g., only five values) throws exception
         );
@@ -157,7 +182,7 @@ class SinglePlayerScoreSubmissionServiceTest extends UnitTestBase
     /**
      * @return array
      */
-    private function result()
+    private function setScoresAssArray()
     {
         $args = func_get_args();
         $scoreArray = array();
