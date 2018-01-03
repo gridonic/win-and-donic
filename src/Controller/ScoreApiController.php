@@ -10,6 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -57,6 +58,6 @@ class ScoreApiController extends Controller
             $entityService->flush();
         }
 
-        return new JsonResponse(array('success' => true));
+        return new JsonResponse(array('success' => true), Response::HTTP_CREATED);
     }
 }

@@ -7,3 +7,6 @@ services:
     # aliases are prefixed with test. For example:
     #
     # test.App\Service\MyService: '@App\Service\MyService'
+
+    App\Service\Core\DateTimeService:
+        class: App\Test\Mock\DateTimeServiceMock

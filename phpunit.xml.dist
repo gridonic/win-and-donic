@@ -1,4 +1,8 @@
 <phpunit bootstrap="vendor/autoload.php">
+    <php>
+        <env name="KERNEL_CLASS" value="App\Kernel" />
+        <env name="DATABASE_URL" value="sqlite:///%kernel.project_dir%/var/data/win_and_donic.sqlite" />
+    </php>
     <testsuites>
         <testsuite name="Project Unit Tests">
             <directory>tests/unit</directory>

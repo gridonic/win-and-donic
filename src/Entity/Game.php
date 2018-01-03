@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -21,16 +22,23 @@ class Game
     private $id;
 
     /**
+     * @var DateTime
+     *
+     * @ORM\Column(type="datetime")
+     */
+    private $dateTime;
+
+    /**
      * @var GameParticipant
      *
-     * @ORM\OneToOne(targetEntity="GameParticipant")
+     * @ORM\ManyToOne(targetEntity="GameParticipant")
      */
     private $homeParticipant;
 
     /**
      * @var GameParticipant
      *
-     * @ORM\OneToOne(targetEntity="GameParticipant")
+     * @ORM\ManyToOne(targetEntity="GameParticipant")
      */
     private $awayParticipant;
 
@@ -52,6 +60,26 @@ class Game
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getDateTime(): ?DateTime
+    {
+        return $this->dateTime;
+    }
+
+    /**
+     * @param DateTime $dateTime
+     *
+     * @return $this
+     */
+    public function setDateTime(?DateTime $dateTime)
+    {
+        $this->dateTime = $dateTime;
+
+        return $this;
     }
 
     /**

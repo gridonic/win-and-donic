@@ -12,6 +12,7 @@ use App\Entity\Game;
 use App\Entity\GameParticipant;
 use App\Entity\Set;
 use App\Repository\GameRepository;
+use App\Service\Core\DateTimeService;
 use App\Service\Core\EntityService;
 use Doctrine\ORM\EntityRepository;
 
@@ -23,14 +24,18 @@ class ScoreSubmissionService
     /** @var EntityRepository */
     private $gameRepository;
 
+    /** @var DateTimeService */
+    private $dateTimeService;
+
     /**
      * @param EntityService $entityService
      * @param GameRepository $gameRepository
      */
-    public function __construct(EntityService $entityService, GameRepository $gameRepository)
+    public function __construct(EntityService $entityService, GameRepository $gameRepository, DateTimeService $dateTimeService)
     {
         $this->entityService = $entityService;
         $this->gameRepository = $gameRepository;
+        $this->dateTimeService = $dateTimeService;
     }
 
     /**
@@ -45,6 +50,7 @@ class ScoreSubmissionService
         $game = new Game();
 
         $this
+            ->setDateTimeOfGame($game)
             ->setParticipantsInGame($game, $homeParticipant, $awayParticipant)
             ->createAndAddSetsToGame($game, $setScores)
             ->persistGame($game);
@@ -63,6 +69,18 @@ class ScoreSubmissionService
     {
         $game->setHomeParticipant($homeParticipant);
         $game->setAwayParticipant($awayParticipant);
+
+        return $this;
+    }
+
+    /**
+     * @param Game $game
+     *
+     * @return $this
+     */
+    private function setDateTimeOfGame(Game $game)
+    {
+        $game->setDateTime($this->dateTimeService->now());
 
         return $this;
     }

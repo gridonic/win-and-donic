@@ -11,8 +11,11 @@ namespace App\Tests\Unit\Score;
 use App\Entity\Game;
 use App\Entity\Player;
 use App\Entity\Team;
+use App\Repository\GameRepository;
+use App\Repository\PlayerRepository;
 use App\Service\Participant\SinglePlayerService;
 use App\Service\Score\ScoreSubmissionService;
+use App\Test\Mock\DateTimeServiceMock;
 use App\Test\UnitTestBase;
 use App\Tests\Unit\Traits\TestUsersTrait;
 use Doctrine\ORM\EntityRepository;
@@ -21,8 +24,8 @@ class SinglePlayerScoreSubmissionServiceTest extends UnitTestBase
 {
     use TestUsersTrait;
 
-    /** @var EntityRepository */
-    private $matchRepository;
+    /** @var GameRepository */
+    private $gameRepository;
 
     /** @var SinglePlayerService */
     private $singlePlayerService;
@@ -38,15 +41,16 @@ class SinglePlayerScoreSubmissionServiceTest extends UnitTestBase
 
     protected function setUp()
     {
+        /** @var PlayerRepository $playerRepository */
         $playerRepository = $this->useRepository(Player::class);
-        $this->matchRepository = $this->useRepository(Game::class);
+        $this->gameRepository = $this->useRepository(Game::class);
 
         $this->singlePlayerService = new SinglePlayerService(
             $this->getEntityService(), $playerRepository
         );
 
         $this->scoreSubmissionService = new ScoreSubmissionService(
-            $this->getEntityService(), $this->matchRepository
+            $this->getEntityService(), $this->gameRepository, new DateTimeServiceMock()
         );
 
         $this->bidu = $this->singlePlayerService->getOrCreatePlayer($this->getDefaultUsers()['bidu']);
@@ -55,7 +59,7 @@ class SinglePlayerScoreSubmissionServiceTest extends UnitTestBase
 
     public function testSinglesMatch_NoScoreSubmittedYet_MatchRepositoryEmpty()
     {
-        $this->assertEmpty($this->matchRepository->findAll());
+        $this->assertEmpty($this->gameRepository->findAll());
     }
 
     /**
@@ -125,8 +129,8 @@ class SinglePlayerScoreSubmissionServiceTest extends UnitTestBase
             $this->julez,
             $setScores);
 
-        $this->assertCount(1, $this->matchRepository->findAll());
-        $this->assertEquals($match, $this->matchRepository->findOneBy(array('id' => $match->getId())));
+        $this->assertCount(1, $this->gameRepository->findAll());
+        $this->assertEquals($match, $this->gameRepository->findOneBy(array('id' => $match->getId())));
     }
 
     // TODO: test multiple matches
