@@ -13,7 +13,7 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\OptimisticLockException;
 
 /**
- * Encapsulates storage and flush methods of EntityManager, to be more independent of it.
+ * Encapsulates storage and flush methods of EntityManager, to be more independent of Doctrine specific classes.
  */
 class EntityService
 {
@@ -44,7 +44,7 @@ class EntityService
      * Saves all changes made on entities in the database.
      *
      * NOTE: Whenever possible, you should only call this method on a top-level, e.g. in a controller method.
-     * When using this method in services the logic of when changes are actually stored in the database may become confusing.
+     * When using this method in services, the logic of when changes are actually stored in the database may become confusing.
      *
      * @throws OptimisticLockException
      */

@@ -3,12 +3,13 @@
 namespace App\Controller;
 
 
-use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
+ * Provides REST Api methods to allow to submit scores to the backend.
+ *
  * @Route("/api/v1/score")
  */
 class ScoreApiController extends Controller

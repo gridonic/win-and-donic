@@ -23,12 +23,4 @@ class Team extends MatchParticipant
      * @ORM\ManyToMany(targetEntity="App\Entity\User")
      */
     private $users;
-
-    /**
-     * @return Match
-     */
-    public function getMatch()
-    {
-        return $this->match;
-    }
 }

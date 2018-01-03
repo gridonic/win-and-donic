@@ -14,7 +14,12 @@ use App\Entity\User;
 use App\Service\Core\EntityService;
 use Doctrine\ORM\EntityRepository;
 
-class MatchParticipantService
+/**
+ * A match always consists of participants. This handles the participants of the kind "Single Player".
+ *
+ * @package App\Service\Participant
+ */
+class SinglePlayerService
 {
     /** @var EntityService */
     private $entityService;

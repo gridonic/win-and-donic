@@ -12,6 +12,8 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * Represents a single player that can participate in matches.
+ *
  * @ORM\Entity()
  */
 class Player extends MatchParticipant
@@ -41,5 +43,17 @@ class Player extends MatchParticipant
         $this->user = $user;
 
         return $this;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getName()
+    {
+        if (empty($this->getUser())) {
+            return null;
+        }
+
+        return $this->getUser()->getUsername();
     }
 }

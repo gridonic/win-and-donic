@@ -33,6 +33,17 @@ class Match
      */
     private $awayParticipant;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer")
+     */
     private $homeScore;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer")
+     */
     private $awayScore;
 }

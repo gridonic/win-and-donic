@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="PHP Code" pattern="file[win-and-donic]:src//*||file[win-and-donic]:tests//*" />
+</component>
