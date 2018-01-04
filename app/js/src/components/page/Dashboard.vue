@@ -9,10 +9,12 @@
 </template>
 
 <script>
-    import UserSelect from './controls/UserSelect';
+    import UserSelect from '../controls/UserSelect';
+    import dashboardStore from '../store/dashboardStore';
 
     export default {
         name: 'dashboard',
+        store: dashboardStore,
         data() {
             return {
                 title: 'Welcome to Win & Donic!',
@@ -28,5 +30,4 @@
 </script>
 
 <style scoped>
-
 </style>

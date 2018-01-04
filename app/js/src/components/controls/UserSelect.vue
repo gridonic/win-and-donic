@@ -16,15 +16,12 @@
         props: ['value'],
         data() {
             return {
-                players: ['julez', 'bidu', 'peschee'],
-                selected: null,
+                players: this.$store.state.players,
+                selected: this.value,
             };
         },
-        created: function created() {
-            this.selected = this.value;
-        },
         watch: {
-            selected: function selected() {
+            selected() {
                 this.$emit('input', this.selected);
             },
         },
