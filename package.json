@@ -14,6 +14,7 @@
     "build": "node webpack/build/build.js"
   },
   "dependencies": {
+    "uikit": "^3.0.0-beta.35",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
