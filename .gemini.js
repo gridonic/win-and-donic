@@ -3,7 +3,7 @@ module.exports = {
     gridUrl: 'http://localhost:4444',
 
     browsers: {
-        chrome: {
+        'chrome-headless': {
             desiredCapabilities: {
                 browserName: 'chrome',
                 version: '59.0',
@@ -18,7 +18,7 @@ module.exports = {
         plugins: {
             'html-reporter': {
                 enabled: true,
-                path: 'gemini-report'
+                path: 'gemini/report'
             }
         }
     }

@@ -132,3 +132,4 @@ typings/
 .stryker-tmp
 
 public/static
+gemini/report
