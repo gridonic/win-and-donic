@@ -10,7 +10,7 @@
         name: 'app',
     };
 </script>
-
+<style src="../../sass/src/styles.scss" lang="scss"></style>
 <style>
     #app {
         font-family: 'Avenir', Helvetica, Arial, sans-serif;
