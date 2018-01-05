@@ -130,3 +130,5 @@ typings/
 .idea/**/uiDesigner.xml
 
 .stryker-tmp
+
+public/static
