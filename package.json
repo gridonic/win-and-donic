@@ -14,7 +14,6 @@
     "build": "node webpack/build/build.js"
   },
   "dependencies": {
-    "babel-plugin-transform-vue-jsx": "^3.5.0",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
     "uikit": "^3.0.0-beta.35",
@@ -29,6 +28,7 @@
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "babel-loader": "^7.1.1",
     "babel-plugin-istanbul": "^4.1.1",
+    "babel-plugin-module-resolver": "^3.0.0",
     "babel-plugin-syntax-jsx": "^6.18.0",
     "babel-plugin-transform-runtime": "^6.22.0",
     "babel-plugin-transform-vue-jsx": "^3.5.0",
