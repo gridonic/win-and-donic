@@ -43,7 +43,7 @@
 
 # Build data
 /build/
-!webpack/build
+!build
 
 # Composer PHAR
 /composer.phar
