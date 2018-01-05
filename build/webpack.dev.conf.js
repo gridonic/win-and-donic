@@ -51,7 +51,10 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       inject: true
     }),
   ]
-})
+});
+
+// create another js file for gemini
+devWebpackConfig.entry['gemini'] = './app/js/test/gemini/index.js';
 
 module.exports = new Promise((resolve, reject) => {
   portfinder.basePort = process.env.PORT || config.dev.port

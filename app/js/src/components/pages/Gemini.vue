@@ -1,6 +1,6 @@
 <template>
     <div data-gemini-container>
-        <component/>
+        <test-component/>
     </div>
 </template>
 
