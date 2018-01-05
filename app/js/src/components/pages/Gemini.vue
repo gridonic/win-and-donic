@@ -1,6 +1,6 @@
 <template>
     <div data-gemini-container>
-        <test-component/>
+        <component/>
     </div>
 </template>
 
@@ -9,6 +9,17 @@
     import Vuex from 'vuex';
     import UserSelect from '@/components/controls/UserSelect';
     import DashboardStore from '@/store/DashboardStore';
+
+    // const file = 'UserSelect';
+    // // eslint-disable-next-line
+    // const x = require(`../controls/${file}`);
+    // console.log(x);
+
+    // var normalizedPath = require("path").join(__dirname, "routes");
+    //
+    // require("fs").readdirSync(normalizedPath).forEach(function(file) {
+    //     require("./routes/" + file);
+    // });
 
     Vue.use(Vuex);
 

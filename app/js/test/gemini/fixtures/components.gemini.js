@@ -1,5 +1,5 @@
 gemini.suite('dashboard', (suite) => {
     suite.setUrl('/')
-        .setCaptureElements('[data-gemini-container]')
+        .setCaptureElements('body')
         .capture('plain');
 });
