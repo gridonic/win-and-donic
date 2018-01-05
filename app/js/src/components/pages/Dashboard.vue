@@ -11,8 +11,8 @@
 <script>
     import Vue from 'vue';
     import Vuex from 'vuex';
-    import UserSelect from '../controls/UserSelect';
-    import DashboardStore from '../store/DashboardStore';
+    import UserSelect from '@/components/controls/UserSelect';
+    import DashboardStore from '@/store/DashboardStore';
 
     Vue.use(Vuex);
 
