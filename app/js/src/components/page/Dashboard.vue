@@ -9,12 +9,20 @@
 </template>
 
 <script>
+    import Vue from 'vue';
+    import Vuex from 'vuex';
     import UserSelect from '../controls/UserSelect';
-    import dashboardStore from '../store/dashboardStore';
+    import DashboardStore from '../store/DashboardStore';
+
+    Vue.use(Vuex);
+
+    const store = new Vuex.Store({
+        state: new DashboardStore(),
+    });
 
     export default {
         name: 'dashboard',
-        store: dashboardStore,
+        store,
         data() {
             return {
                 title: 'Welcome to Win & Donic!',
