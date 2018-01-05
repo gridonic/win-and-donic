@@ -3,6 +3,10 @@
     "source": {
         "directories": [
             "src"
+        ],
+        "exclude": [
+            "Test",
+            "Kernel.php"
         ]
     },
     "logs": {
