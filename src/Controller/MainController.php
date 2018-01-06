@@ -17,4 +17,12 @@ class MainController extends Controller
     {
         return $this->render('main/index.html.twig');
     }
+
+    /**
+     * @Route("/gemini")
+     */
+    public function gemini()
+    {
+        return $this->render('gemini.html.twig');
+    }
 }

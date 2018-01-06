@@ -1,5 +1,5 @@
 <template>
-    <div data-gemini-container>
+    <div class="gemini" data-gemini-container>
         <test-component/>
     </div>
 </template>
@@ -38,4 +38,7 @@
 </script>
 
 <style scoped>
+    .gemini {
+        display: inline-block;
+    }
 </style>
