@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapGetters } from 'vuex';
 import User from '@/entity/User';
 
 export default {
@@ -32,9 +32,9 @@ export default {
         };
     },
     computed: {
-        ...mapState({
-            players: state => state.players
-        })
+        ...mapGetters([
+            'players'
+        ])
     },
     watch: {
         selected() {

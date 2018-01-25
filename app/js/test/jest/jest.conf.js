@@ -1,15 +1,18 @@
 /* eslint-disable */
 const path = require('path');
 
+const rootDir = path.resolve(__dirname, '../../../../');
+const srcDir = path.join(rootDir, 'app/js/src');
+
 module.exports = {
-    rootDir: path.resolve(__dirname, '../../../../'),
+    rootDir,
     moduleFileExtensions: [
         'js',
         'json',
         'vue'
     ],
     moduleNameMapper: {
-        '^@/(.*)$': '<rootDir>/app/js/src/$1'
+        '^@/(.*)$': `${srcDir}/$1`
     },
     transform: {
         '^.+\\.js$': '<rootDir>/node_modules/babel-jest',
@@ -18,11 +21,13 @@ module.exports = {
     snapshotSerializers: ['<rootDir>/node_modules/jest-serializer-vue'],
     setupFiles: ['<rootDir>/app/js/test/jest/setup'],
     mapCoverage: true,
-    coverageDirectory: '<rootDir>/test/unit/coverage',
+    coverageDirectory: '<rootDir>/reports/jest/coverage',
     collectCoverageFrom: [
         'src/**/*.{js,vue}',
         '!src/main.js',
-        '!**/node_modules/**'
+        '!**/*.spec.js',
+        '!**/node_modules/**',
+        "!**/vendor/**"
     ],
     testRegex: 'jest/fixtures/.*',
 };

@@ -134,3 +134,4 @@ typings/
 public/static
 app/js/test/gemini/report
 /test/jest/coverage/
+reports

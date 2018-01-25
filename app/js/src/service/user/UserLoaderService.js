@@ -1,12 +1,16 @@
-import axios from 'axios';
-
 import User from '@/entity/User';
 
 export default class UserLoaderService {
-    loadAllUsersAsync() {
-        return axios
-            .get('/api/v1/user/all')
-            .then(response => this.usersFromData(response.data));
+    constructor({
+        ajaxService
+    }) {
+        this.ajaxService = ajaxService;
+    }
+
+    async loadAllUsersAsync() {
+        // TODO: try catch
+        const response = await this.ajaxService.get('/api/v1/user/all');
+        return this.usersFromData(response.data);
     }
 
     usersFromData(usersData) {

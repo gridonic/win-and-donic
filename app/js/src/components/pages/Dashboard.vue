@@ -19,10 +19,15 @@ Vue.use(Vuex);
 
 const container = new Container();
 
-const store = new Vuex.Store(
-    new DashboardStore({
-        userLoaderService: container.userLoaderService
-    }));
+const dashboardStore = new DashboardStore({
+    userLoaderService: container.userLoaderService
+});
+
+const store = new Vuex.Store({
+    modules: {
+        dashboardStore
+    }
+});
 
 store.dispatch(Actions.LOAD_PLAYERS);
 

@@ -17,6 +17,12 @@ export default class DashboardStore {
         };
     }
 
+    get getters() {
+        return {
+            players: state => state.players
+        };
+    }
+
     get mutations() {
         return {
             updatePlayers(state, players) {
