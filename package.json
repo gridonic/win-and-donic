@@ -16,7 +16,9 @@
     "test:e2e": "node app/js/test/e2e/runner.js",
     "test:unit": "cross-env BABEL_ENV=test karma start app/js/test/unit/karma.conf.js --single-run",
     "jest:unit": "jest --config app/js/test/jest/jest.conf.js --coverage",
-    "start": "npm run dev"
+    "start": "npm run dev",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "axios": "^0.17.1",
@@ -102,7 +104,12 @@
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "^2.9.1",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
+    "@storybook/vue": "^3.3.10",
+    "@storybook/addon-actions": "^3.3.10",
+    "@storybook/addon-links": "^3.3.10",
+    "@storybook/addons": "^3.3.10",
+    "babel-preset-vue": "^2.0.0"
   },
   "engines": {
     "node": ">= 4.0.0",

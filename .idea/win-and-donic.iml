@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/tests/functional" isTestSource="true" packagePrefix="App\Tests\Functional" />
       <sourceFolder url="file://$MODULE_DIR$/tests/integration" isTestSource="true" packagePrefix="App\Tests\Integration" />
       <sourceFolder url="file://$MODULE_DIR$/tests/unit" isTestSource="true" packagePrefix="App\Tests\Unit" />
+      <excludeFolder url="file://$MODULE_DIR$/.reports" />
       <excludeFolder url="file://$MODULE_DIR$/node_modules" />
       <excludeFolder url="file://$MODULE_DIR$/reports" />
       <excludeFolder url="file://$MODULE_DIR$/var" />
