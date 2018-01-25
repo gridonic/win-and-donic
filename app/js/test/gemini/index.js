@@ -9,9 +9,9 @@ new Vue({
     el: '#app',
     template: '<gemini-app/>',
     data: {
-        message: 'Hello Vue!',
+        message: 'Hello Vue!'
     },
     components: {
-        'gemini-app': Gemini,
-    },
+        'gemini-app': Gemini
+    }
 });

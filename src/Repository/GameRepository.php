@@ -10,6 +10,9 @@ class GameRepository extends EntityRepository
 {
     /**
      * @return Game
+     *
+     * @throws \Doctrine\ORM\NoResultException
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function getLatestGame(): ?Game
     {

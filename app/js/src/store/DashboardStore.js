@@ -1,5 +1,14 @@
+import User from '@/entity/User';
+
 export default class DashboardStore {
-    constructor() {
-        this.players = ['julez', 'bidu', 'peschee', 'dennis'];
+    constructor({ userLoaderService }) {
+        this.userLoaderService = userLoaderService;
+
+        this.players = [];
+        this.players.push(new User({ id: 1, username: 'Gak' }));
+    }
+
+    loadPlayers() {
+        return this.userLoaderService.loadAllUsersAsync();
     }
 }

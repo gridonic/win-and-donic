@@ -19,6 +19,7 @@
     "start": "npm run dev"
   },
   "dependencies": {
+    "axios": "^0.17.1",
     "uikit": "^3.0.0-beta.35",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
@@ -54,6 +55,7 @@
     "eslint-loader": "^1.7.1",
     "eslint-plugin-html": "^3.0.0",
     "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-vue": "^4.2.0",
     "eventsource-polyfill": "^0.9.6",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^1.1.4",
