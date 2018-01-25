@@ -5,8 +5,8 @@
             v-model="selected">
             <option
                 v-for="player in players"
-                :key="player.id"
-                :value="player"> <!-- v-bind:value="option.value"> -->
+                :key="player.id" :value="player">
+
                 {{ player.username }}
             </option>
         </select>
@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import User from '@/entity/User';
 
 export default {
@@ -31,9 +32,9 @@ export default {
         };
     },
     computed: {
-        players() {
-            return this.$store.state.players;
-        }
+        ...mapState({
+            players: state => state.players
+        })
     },
     watch: {
         selected() {
