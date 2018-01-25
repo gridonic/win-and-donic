@@ -19,34 +19,6 @@ Vue.use(Vuex);
 
 const container = new Container();
 
-// const store = new Vuex.Store({
-//     state: new DashboardStore({
-//         userLoaderService: container.userLoaderService,
-//     }),
-//     mutations: {
-//         async loadPlayers(state) {
-//             // eslint-disable-next-line
-//             state.players = await state.loadPlayers();
-//             console.log(state.players);
-//         },
-//     },
-// });
-
-// const store = new Vuex.Store({
-//     state: new DashboardStore({
-//         userLoaderService: container.userLoaderService
-//     }),
-//     mutations: {
-//         updatePlayers(state, players) {
-//             state.updatePlayers(players);
-//         }
-//     },
-//     actions: {
-//         async loadPlayers({ commit }) {
-//             commit('updatePlayers', await container.userLoaderService.loadAllUsersAsync());
-//         }
-//     }
-// });
 const store = new Vuex.Store(new DashboardStore({ userLoaderService: container.userLoaderService }));
 
 store.dispatch('loadPlayers');

@@ -1,8 +1,10 @@
 export default class DashboardStore {
     constructor({ userLoaderService }) {
         this.userLoaderService = userLoaderService;
+    }
 
-        this.state = {
+    get state() {
+        return {
             players: []
         };
     }
