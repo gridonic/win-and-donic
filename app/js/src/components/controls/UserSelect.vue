@@ -3,11 +3,14 @@
         <select
             class="uk-select"
             v-model="selected">
-            <option :key="player.id" v-for="player in players"> <!-- v-bind:value="option.value"> -->
+            <option
+                v-for="player in players"
+                :key="player.id"
+                :value="player"> <!-- v-bind:value="option.value"> -->
                 {{ player.username }}
             </option>
         </select>
-        <span>Selected: {{ selected }}</span>
+        <span>Selected: {{ selected ? selected.username : null }}</span>
     </div>
 </template>
 

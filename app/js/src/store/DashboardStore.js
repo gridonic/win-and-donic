@@ -1,14 +1,27 @@
-import User from '@/entity/User';
-
 export default class DashboardStore {
     constructor({ userLoaderService }) {
         this.userLoaderService = userLoaderService;
 
-        this.players = [];
-        this.players.push(new User({ id: 1, username: 'Gak' }));
+        this.state = {
+            players: []
+        };
     }
 
-    loadPlayers() {
-        return this.userLoaderService.loadAllUsersAsync();
+    get mutations() {
+        return {
+            updatePlayers(state, players) {
+                state.players = players;
+            }
+        };
+    }
+
+    get actions() {
+        const self = this;
+
+        return {
+            async loadPlayers({ commit }) {
+                commit('updatePlayers', await self.userLoaderService.loadAllUsersAsync());
+            }
+        };
     }
 }
