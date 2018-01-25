@@ -1,3 +1,11 @@
+export const Mutations = {
+    UPDATE_PLAYERS: 'updatePlayers'
+};
+
+export const Actions = {
+    LOAD_PLAYERS: 'loadPlayers'
+};
+
 export default class DashboardStore {
     constructor({ userLoaderService }) {
         this.userLoaderService = userLoaderService;
@@ -22,7 +30,9 @@ export default class DashboardStore {
 
         return {
             async loadPlayers({ commit }) {
-                commit('updatePlayers', await self.userLoaderService.loadAllUsersAsync());
+                commit(
+                    Mutations.UPDATE_PLAYERS,
+                    await self.userLoaderService.loadAllUsersAsync());
             }
         };
     }

@@ -12,16 +12,19 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import UserSelect from '@/components/controls/UserSelect';
-import DashboardStore from '@/store/DashboardStore';
+import DashboardStore, { Actions } from '@/store/DashboardStore';
 import Container from '@/service/Container';
 
 Vue.use(Vuex);
 
 const container = new Container();
 
-const store = new Vuex.Store(new DashboardStore({ userLoaderService: container.userLoaderService }));
+const store = new Vuex.Store(
+    new DashboardStore({
+        userLoaderService: container.userLoaderService
+    }));
 
-store.dispatch('loadPlayers');
+store.dispatch(Actions.LOAD_PLAYERS);
 
 export default {
     name: 'Dashboard',
