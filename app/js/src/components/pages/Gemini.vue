@@ -8,7 +8,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import UserSelect from '@/components/controls/UserSelect';
-import DashboardStore from '@/store/DashboardStore';
+import User from '@/entity/User';
 
 // const file = 'UserSelect';
 // // eslint-disable-next-line
@@ -23,8 +23,32 @@ import DashboardStore from '@/store/DashboardStore';
 
 Vue.use(Vuex);
 
+Vue.use(Vuex);
+
+const StoreMock = class DashboardStore {
+    get state() {
+        return {
+            players: [
+                new User({ id: 1, username: 'dennis' }),
+                new User({ id: 2, username: 'julez' }),
+                new User({ id: 3, username: 'peschee' })
+            ]
+        };
+    }
+
+    get getters() {
+        return {
+            players: state => state.players
+        };
+    }
+};
+
+const storeMock = new StoreMock();
+
 const store = new Vuex.Store({
-    state: new DashboardStore()
+    modules: {
+        storeMock
+    }
 });
 
 export default {
