@@ -4,7 +4,7 @@ const path = require('path');
 const resolve = (subPath) => path.resolve(geminiTestPath, subPath);
 
 module.exports = {
-    rootUrl: 'http://lo.win-and-donic.ch',
+    rootUrl: 'http://localhost:6006',
     gridUrl: 'http://localhost:4444',
 
     screenshotsDir: resolve('screens'),
